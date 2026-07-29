@@ -269,3 +269,18 @@ opacity:1;
 }
 
 }
+@keyframes fall{
+
+from{
+
+transform:translateY(-50px) rotate(0deg);
+
+}
+
+to{
+
+transform:translateY(110vh) rotate(360deg);
+
+}
+
+}
