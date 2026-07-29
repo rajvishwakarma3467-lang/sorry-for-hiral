@@ -71,3 +71,22 @@ function createHearts(){
     }
 
 }
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.innerHTML="💗";
+
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"%";
+heart.style.bottom="0";
+heart.style.fontSize="20px";
+heart.style.animation="float 5s linear";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},800);
