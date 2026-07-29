@@ -1,8 +1,22 @@
-let text = 
-"Hirruuuuu... 🥺 I know I can't change what happened, but I promise to learn from it and become a better person for us. ❤️";
+const messages = [
+
+"I messed up... and I'm really sorry for that. 🥺🥺",
+
+"I promise I'll be better more 😘😘",
+
+"Please forgive me... You mean so much to me. ☹️☹️",
+
+"I'm really sorry Hiral, I accidentally upset the most precious and adorable person in my life — you. 🥹",
+
+"Please forgive me. If I hurt you or even if I was a little rude, I promise I didn't mean to. 🥺💕",
+
+"I know I can't change what happened, but I promise to learn from it and become a better person for us. ❤️"
+
+];
 
 
-let i = 0;
+let current=0;
+
 
 
 function openLetter(){
@@ -11,23 +25,67 @@ document.getElementById("welcome").style.display="none";
 
 document.getElementById("letter").style.display="block";
 
-typeWriter();
+showMessage();
 
 }
 
 
 
-function typeWriter(){
+function showMessage(){
 
-if(i < text.length){
+let box=document.getElementById("messageText");
 
-document.getElementById("typing").innerHTML += text.charAt(i);
+box.innerHTML="";
+
+let text=messages[current];
+
+let i=0;
+
+
+let typing=setInterval(()=>{
+
+box.innerHTML+=text[i];
 
 i++;
 
-setTimeout(typeWriter,45);
+
+if(i>=text.length){
+
+clearInterval(typing);
 
 }
+
+},45);
+
+
+}
+
+
+
+
+
+function nextMessage(){
+
+
+current++;
+
+
+if(current < messages.length){
+
+showMessage();
+
+}
+
+else{
+
+
+document.querySelector(".message-area").style.display="none";
+
+document.getElementById("forgive").style.display="block";
+
+
+}
+
 
 }
 
@@ -36,16 +94,14 @@ setTimeout(typeWriter,45);
 
 function noClick(){
 
+
 let btn=document.getElementById("noBtn");
 
 
-let x=Math.random()*250-125;
-
-let y=Math.random()*200-100;
-
-
 btn.style.transform=
-`translate(${x}px,${y}px)`;
+
+`translate(${Math.random()*200-100}px,
+${Math.random()*100-50}px)`;
 
 }
 
@@ -55,15 +111,12 @@ btn.style.transform=
 function yesClick(){
 
 
-document.getElementById("final").innerHTML=
+document.getElementById("letter").style.display="none";
 
-"🥹❤️ Thank you for forgiving me, Hirruuuuu.<br><br>I promise I'll keep learning, improving and always value you.<br><br>— Raj ❤️";
+document.getElementById("celebration").style.display="block";
 
 
-
-createHearts();
-
-createConfetti();
+startCelebration();
 
 
 }
@@ -71,87 +124,59 @@ createConfetti();
 
 
 
-
-function createHearts(){
-
-
-for(let i=0;i<80;i++){
+function startCelebration(){
 
 
-let heart=document.createElement("div");
+for(let i=0;i<120;i++){
 
 
-heart.innerHTML="❤️";
+let item=document.createElement("div");
 
 
-heart.style.position="fixed";
+let type=Math.random();
 
-heart.style.left=Math.random()*100+"%";
 
-heart.style.top="60%";
+if(type<0.5){
 
-heart.style.fontSize=
+item.innerHTML="❤️";
+
+}
+else if(type<0.8){
+
+item.innerHTML="🌹";
+
+}
+else{
+
+item.innerHTML="✨";
+
+}
+
+
+
+item.style.position="fixed";
+
+item.style.left=Math.random()*100+"%";
+
+item.style.top="-30px";
+
+item.style.fontSize=
 (15+Math.random()*25)+"px";
 
 
-heart.style.animation=
-"heartFly 3s linear";
+item.style.animation=
+"fall 4s linear";
 
 
-document.body.appendChild(heart);
-
-
-
-setTimeout(()=>{
-
-heart.remove();
-
-},3000);
-
-
-
-}
-
-
-}
-
-
-
-
-function createConfetti(){
-
-
-for(let i=0;i<100;i++){
-
-
-let c=document.createElement("div");
-
-
-c.innerHTML="✨";
-
-
-c.style.position="fixed";
-
-c.style.left=Math.random()*100+"%";
-
-c.style.top="-20px";
-
-c.style.fontSize="25px";
-
-
-c.style.animation=
-"fall 3s linear";
-
-
-document.body.appendChild(c);
+document.body.appendChild(item);
 
 
 
 setTimeout(()=>{
 
-c.remove();
+item.remove();
 
-},3000);
+},4000);
 
 
 
