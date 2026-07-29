@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sorry Hirruuuuu ❤️</title>
+<title>For Hirruuuuu ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,9 +21,9 @@
 <div class="petals"></div>
 
 
-<!-- Opening Screen -->
+<!-- Screen 1 -->
 
-<div class="welcome" id="welcome">
+<div class="screen welcome" id="welcome">
 
 <div class="envelope">
 💌
@@ -36,7 +36,7 @@ For My Hirruuuuu ❤️
 
 
 <p>
-Raj has something from his heart for you...
+Raj has a little apology from his heart...
 </p>
 
 
@@ -50,10 +50,12 @@ Open My Letter 💌
 
 
 
-<!-- Letter -->
+<!-- Screen 2 & 3 -->
+
+<div class="screen letter" id="letter">
 
 
-<div class="letter" id="letter">
+<img src="IMG-20260730-WA0000.jpg" class="photo">
 
 
 <h1>
@@ -62,90 +64,25 @@ I'm Sorry Hiral ❤️
 
 
 
-<img src="IMG-20260730-WA0000.jpg" class="photo">
+<div class="message-area">
 
 
-
-<div class="typing-box">
-
-<p id="typing"></p>
-
-</div>
+<p id="messageText"></p>
 
 
-
-
-<div class="apology">
-
-
-<div class="card">
-🥺🥺
-<br><br>
-I messed up... and I'm really sorry for that.
-</div>
-
-
-
-<div class="card">
-😘😘
-<br><br>
-I promise I'll try my best to be better.
-</div>
-
-
-
-<div class="card">
-☹️☹️
-<br><br>
-Please forgive me...
-You mean so much to me.
-</div>
-
-
-
-
-<div class="card">
-
-🥹❤️
-<br><br>
-
-I'm really sorry Hiral.
-I accidentally upset the most precious and adorable person in my life — you.
-
-</div>
-
-
-
-
-<div class="card">
-
-🥺💕
-<br><br>
-
-Please forgive me.
-If I hurt you or even if I was a little rude,
-I promise I didn't mean to.
-
-</div>
-
-
-
-<div class="card">
-
-❤️
-
-<br><br>
-
-I know I can't change what happened,
-but I promise to learn from it and become a better person for us.
-
-</div>
-
+<button id="nextBtn" onclick="nextMessage()">
+Next ❤️
+</button>
 
 
 </div>
 
 
+
+<!-- Final Question -->
+
+
+<div class="forgive" id="forgive">
 
 
 <h2>
@@ -153,21 +90,13 @@ Will you forgive me? 🥺
 </h2>
 
 
-
-<div class="buttons">
-
-<button id="yesBtn" onclick="yesClick()">
-
+<button class="yes" onclick="yesClick()">
 🥹 Yes ❤️
-
 </button>
 
 
-
-<button id="noBtn" onclick="noClick()">
-
+<button class="no" id="noBtn" onclick="noClick()">
 🥺 No
-
 </button>
 
 
@@ -175,8 +104,20 @@ Will you forgive me? 🥺
 
 
 
-<div id="final"></div>
 
+</div>
+
+
+
+
+<!-- Celebration -->
+
+<div class="celebration" id="celebration">
+
+
+<h1>
+Thank you for forgiving me, Hirruuuuu ❤️
+</h1>
 
 
 </div>
