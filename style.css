@@ -1,196 +1,316 @@
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    padding:0;
-    min-height:100vh;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#ffd6e8,#fff0f5,#ffc1dc);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow-x:hidden;
+
+margin:0;
+padding:0;
+
+min-height:100vh;
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(135deg,#ffd1e6,#fff0f6,#ffb6d5);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow-x:hidden;
+
 }
 
+
+/* Glass Cards */
 
 .welcome,
 .letter{
-    width:90%;
-    max-width:500px;
-    background:rgba(255,255,255,0.45);
-    backdrop-filter:blur(15px);
-    border-radius:30px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(255,80,150,0.25);
+
+width:90%;
+max-width:520px;
+
+background:rgba(255,255,255,.45);
+
+backdrop-filter:blur(20px);
+
+border-radius:35px;
+
+padding:35px;
+
+text-align:center;
+
+box-shadow:
+0 20px 50px rgba(255,70,140,.25);
+
 }
 
+
+
+/* Welcome */
 
 .welcome{
-    animation:fadeIn 1.5s ease;
+
+animation:fadeIn 1.5s ease;
+
 }
 
 
-.letter{
-    display:none;
-    animation:openLetter 1s ease;
+
+.envelope{
+
+font-size:90px;
+
+animation:float 2s infinite ease-in-out;
+
 }
+
+
 
 
 h1{
-    font-family:'Dancing Script',cursive;
-    font-size:55px;
-    color:#ff3f8e;
+
+font-family:'Dancing Script',cursive;
+
+font-size:55px;
+
+color:#ff3f8e;
+
+margin-bottom:10px;
+
 }
+
 
 
 p{
-    color:#555;
-    font-size:18px;
+
+font-size:18px;
+
+color:#555;
+
 }
 
 
-.heart{
-    font-size:70px;
-    animation:beat 1s infinite;
+
+
+/* Letter hidden initially */
+
+.letter{
+
+display:none;
+
+animation:open 1s ease;
+
 }
 
 
-button{
-    border:none;
-    padding:15px 30px;
-    border-radius:40px;
-    background:#ff4f98;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(255,80,150,.4);
-    transition:.3s;
-}
 
-
-button:hover{
-    transform:scale(1.08);
-}
 
 
 .photo{
-    width:220px;
-    height:220px;
-    object-fit:cover;
-    border-radius:50%;
-    border:8px solid white;
-    box-shadow:0 0 30px #ff8fc4;
-    margin:20px;
+
+width:230px;
+
+height:230px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:8px solid white;
+
+box-shadow:
+0 0 35px #ff7fbc;
+
+margin:20px;
+
 }
+
+
+
+
+.typing-box{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+color:#ff3f8e;
+
+min-height:80px;
+
+}
+
+
 
 
 .card{
-    background:white;
-    padding:20px;
-    margin:15px 0;
-    border-radius:20px;
-    color:#555;
-    box-shadow:0 8px 20px rgba(255,100,150,.15);
-    animation:slide 1s ease;
+
+background:white;
+
+margin:18px 0;
+
+padding:22px;
+
+border-radius:22px;
+
+box-shadow:
+0 10px 25px rgba(255,100,160,.15);
+
+font-size:17px;
+
+animation:slide .8s ease;
+
 }
 
 
-.message-box{
-    min-height:80px;
-    color:#ff3f8e;
-    font-size:18px;
+
+
+button{
+
+border:none;
+
+padding:16px 30px;
+
+border-radius:40px;
+
+background:#ff4f98;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin:10px;
+
+transition:.3s;
+
+box-shadow:
+0 10px 25px rgba(255,70,140,.35);
+
 }
+
+
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+
+
+#noBtn{
+
+background:#888;
+
+position:relative;
+
+}
+
 
 
 #final{
-    margin-top:25px;
-    color:#ff3f8e;
-    font-size:20px;
-    font-weight:bold;
-}
 
+margin-top:25px;
 
-@keyframes beat{
+font-size:22px;
 
-50%{
-transform:scale(1.2);
-}
+color:#ff3f8e;
+
+font-weight:bold;
 
 }
+
+
+
+
+/* Animations */
 
 
 @keyframes fadeIn{
 
 from{
+
 opacity:0;
-transform:translateY(40px);
+transform:translateY(50px);
+
 }
 
 to{
+
 opacity:1;
-}
 
 }
 
+}
 
-@keyframes openLetter{
+
+
+@keyframes open{
 
 from{
-transform:scale(.8);
+
+transform:scale(.7);
+
 opacity:0;
+
 }
 
 to{
+
 transform:scale(1);
+
 opacity:1;
+
 }
 
 }
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
 
 
 @keyframes slide{
 
 from{
+
 opacity:0;
+
 transform:translateY(30px);
+
 }
 
 to{
+
 opacity:1;
-}
 
-}
-.petals:before,
-.petals:after{
-    content:"🌸 🌸 🌸 🌸 🌸";
-    position:fixed;
-    top:-50px;
-    left:0;
-    width:100%;
-    font-size:25px;
-    animation:fall 10s linear infinite;
-    opacity:.7;
-    pointer-events:none;
-}
-
-
-.petals:after{
-    animation-delay:5s;
-    left:30px;
-}
-
-
-@keyframes fall{
-
-0%{
-transform:translateY(-10vh) rotate(0deg);
-}
-
-100%{
-transform:translateY(110vh) rotate(360deg);
 }
 
 }
