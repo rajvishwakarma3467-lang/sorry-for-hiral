@@ -163,3 +163,34 @@ opacity:1;
 }
 
 }
+.petals:before,
+.petals:after{
+    content:"🌸 🌸 🌸 🌸 🌸";
+    position:fixed;
+    top:-50px;
+    left:0;
+    width:100%;
+    font-size:25px;
+    animation:fall 10s linear infinite;
+    opacity:.7;
+    pointer-events:none;
+}
+
+
+.petals:after{
+    animation-delay:5s;
+    left:30px;
+}
+
+
+@keyframes fall{
+
+0%{
+transform:translateY(-10vh) rotate(0deg);
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+
+}
