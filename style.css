@@ -5,54 +5,48 @@ box-sizing:border-box;
 body{
 
 margin:0;
-padding:0;
-
 min-height:100vh;
 
 font-family:'Poppins',sans-serif;
 
 background:
-linear-gradient(135deg,#ffd1e6,#fff0f6,#ffb6d5);
+linear-gradient(135deg,#ffd6e8,#fff5fa,#ffc1dc);
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-overflow-x:hidden;
+overflow:hidden;
 
 }
 
 
-/* Glass Cards */
-
-.welcome,
-.letter{
+.screen{
 
 width:90%;
 max-width:520px;
 
-background:rgba(255,255,255,.45);
+text-align:center;
 
-backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.45);
 
-border-radius:35px;
+backdrop-filter:blur(18px);
 
 padding:35px;
 
-text-align:center;
+border-radius:35px;
 
 box-shadow:
-0 20px 50px rgba(255,70,140,.25);
+0 20px 50px rgba(255,80,150,.25);
 
 }
 
 
 
-/* Welcome */
 
 .welcome{
 
-animation:fadeIn 1.5s ease;
+animation:fade 1.5s ease;
 
 }
 
@@ -62,10 +56,9 @@ animation:fadeIn 1.5s ease;
 
 font-size:90px;
 
-animation:float 2s infinite ease-in-out;
+animation:bounce 2s infinite;
 
 }
-
 
 
 
@@ -73,11 +66,9 @@ h1{
 
 font-family:'Dancing Script',cursive;
 
-font-size:55px;
+font-size:52px;
 
 color:#ff3f8e;
-
-margin-bottom:10px;
 
 }
 
@@ -85,26 +76,57 @@ margin-bottom:10px;
 
 p{
 
-font-size:18px;
-
 color:#555;
+
+font-size:18px;
 
 }
 
 
 
 
-/* Letter hidden initially */
+button{
+
+border:none;
+
+padding:15px 30px;
+
+border-radius:50px;
+
+background:#ff4f98;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin:10px;
+
+box-shadow:
+0 10px 25px rgba(255,70,140,.35);
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+
+
 
 .letter{
 
 display:none;
 
-animation:open 1s ease;
+animation:openLetter 1s ease;
 
 }
-
-
 
 
 
@@ -121,104 +143,55 @@ border-radius:50%;
 border:8px solid white;
 
 box-shadow:
-0 0 35px #ff7fbc;
-
-margin:20px;
+0 0 35px #ff77b7;
 
 }
 
 
 
 
-.typing-box{
+.message-area{
 
-background:white;
+background:#fff;
 
-padding:20px;
+margin-top:25px;
 
-border-radius:20px;
+padding:25px;
+
+border-radius:25px;
+
+min-height:160px;
+
+font-family:'Dancing Script',cursive;
+
+font-size:28px;
 
 color:#ff3f8e;
 
-min-height:80px;
-
 }
 
 
 
 
-.card{
+.forgive{
 
-background:white;
-
-margin:18px 0;
-
-padding:22px;
-
-border-radius:22px;
-
-box-shadow:
-0 10px 25px rgba(255,100,160,.15);
-
-font-size:17px;
-
-animation:slide .8s ease;
+display:none;
 
 }
 
 
 
-
-button{
-
-border:none;
-
-padding:16px 30px;
-
-border-radius:40px;
+.yes{
 
 background:#ff4f98;
 
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-margin:10px;
-
-transition:.3s;
-
-box-shadow:
-0 10px 25px rgba(255,70,140,.35);
-
 }
 
 
 
-button:hover{
+.no{
 
-transform:scale(1.08);
-
-}
-
-
-
-.buttons{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-}
-
-
-
-#noBtn{
-
-background:#888;
+background:#777;
 
 position:relative;
 
@@ -226,30 +199,44 @@ position:relative;
 
 
 
-#final{
 
-margin-top:25px;
+.celebration{
 
-font-size:22px;
+display:none;
 
-color:#ff3f8e;
-
-font-weight:bold;
+text-align:center;
 
 }
 
 
 
+.celebration h1{
 
-/* Animations */
+font-size:45px;
+
+}
 
 
-@keyframes fadeIn{
+
+@keyframes bounce{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+@keyframes fade{
 
 from{
 
 opacity:0;
-transform:translateY(50px);
+
+transform:translateY(40px);
 
 }
 
@@ -263,7 +250,7 @@ opacity:1;
 
 
 
-@keyframes open{
+@keyframes openLetter{
 
 from{
 
@@ -278,73 +265,6 @@ to{
 transform:scale(1);
 
 opacity:1;
-
-}
-
-}
-
-
-
-@keyframes float{
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-}
-
-
-
-@keyframes slide{
-
-from{
-
-opacity:0;
-
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-@keyframes heartFly{
-
-from{
-
-transform:translateY(0);
-opacity:1;
-
-}
-
-to{
-
-transform:translateY(-500px);
-opacity:0;
-
-}
-
-}
-
-
-
-@keyframes fall{
-
-from{
-
-transform:translateY(-20px);
-
-}
-
-to{
-
-transform:translateY(100vh);
 
 }
 
