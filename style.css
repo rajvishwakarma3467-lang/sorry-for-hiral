@@ -314,3 +314,38 @@ opacity:1;
 }
 
 }
+@keyframes heartFly{
+
+from{
+
+transform:translateY(0);
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-500px);
+opacity:0;
+
+}
+
+}
+
+
+
+@keyframes fall{
+
+from{
+
+transform:translateY(-20px);
+
+}
+
+to{
+
+transform:translateY(100vh);
+
+}
+
+}
