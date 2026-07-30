@@ -309,14 +309,6 @@ heart.remove();
 
 
 },800);
-// ==========================
-// YES / NO SCREEN
-// ==========================
-
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-
-const finalText = document.getElementById("finalText");
 
 
 // ==========================
