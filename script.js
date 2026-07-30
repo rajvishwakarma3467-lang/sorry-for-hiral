@@ -459,3 +459,30 @@ orb.remove();
 },10000);
 
 },1800);
+// ==========================
+// SAKURA PETALS
+// ==========================
+
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌸";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.fontSize=(16+Math.random()*18)+"px";
+
+petal.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},12000);
+
+},450);
