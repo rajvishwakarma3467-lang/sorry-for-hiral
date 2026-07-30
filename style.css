@@ -1008,3 +1008,20 @@ opacity:0;
 }
 
 }
+@keyframes cardGlow{
+
+from{
+
+box-shadow:
+0 0 25px rgba(255,120,180,.25);
+
+}
+
+to{
+
+box-shadow:
+0 0 55px rgba(255,120,180,.55);
+
+}
+
+}
