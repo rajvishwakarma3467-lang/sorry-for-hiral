@@ -257,7 +257,10 @@ border:1px solid rgba(255,255,255,.25);
 box-shadow:
 
 0 20px 60px rgba(0,0,0,.35);
-
+   
+animation:
+paperOpen .9s,
+cardGlow 3s ease-in-out infinite alternate;
 }
 
 /* =========================
