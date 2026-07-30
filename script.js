@@ -196,7 +196,6 @@ finalText.style.display="block";
 celebration();
 
 
-});
 jsConfetti.addConfetti({
     emojis: ["❤️","🌹","🌸","✨","💖"],
     emojiSize: 40,
