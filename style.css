@@ -959,3 +959,49 @@ transform:rotate(360deg) scale(1);
 }
 
 }
+/* SAKURA PETALS */
+
+.petal{
+position:fixed;
+top:-40px;
+pointer-events:none;
+z-index:999;
+font-size:18px;
+animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+0%{
+transform:
+translate3d(0,-40px,0)
+rotate(0deg);
+opacity:1;
+}
+
+25%{
+transform:
+translate3d(25px,25vh,0)
+rotate(90deg);
+}
+
+50%{
+transform:
+translate3d(-20px,50vh,0)
+rotate(180deg);
+}
+
+75%{
+transform:
+translate3d(30px,75vh,0)
+rotate(270deg);
+}
+
+100%{
+transform:
+translate3d(-15px,110vh,0)
+rotate(360deg);
+opacity:0;
+}
+
+}
