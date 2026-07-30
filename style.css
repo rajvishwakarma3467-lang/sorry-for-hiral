@@ -246,47 +246,17 @@ PAPER
 
 .paper{
 
-width:100%;
-max-width:420px;
+background:rgba(255,255,255,.15);
 
-background:#fffdf8;
+backdrop-filter:blur(20px);
 
-border-radius:24px;
+-webkit-backdrop-filter:blur(20px);
 
-padding:28px;
-
-text-align:center;
+border:1px solid rgba(255,255,255,.25);
 
 box-shadow:
+
 0 20px 60px rgba(0,0,0,.35);
-
-color:#444;
-
-animation:paperOpen .9s;
-
-}
-
-@keyframes paperOpen{
-
-0%{
-
-opacity:0;
-
-transform:
-scale(.7)
-rotateX(90deg);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:
-scale(1)
-rotateX(0);
-
-}
 
 }
 
