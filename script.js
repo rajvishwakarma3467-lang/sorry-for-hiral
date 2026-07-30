@@ -60,7 +60,14 @@ showMessage();
 
 
 });
+envelope.classList.add("open");
 
+setTimeout(()=>{
+
+document.querySelector(".envelope-letter").style.transform =
+"translateY(-140px) scale(1.08)";
+
+},600);
 
 // ==========================
 // TYPE MESSAGE
