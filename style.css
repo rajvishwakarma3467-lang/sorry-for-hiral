@@ -260,7 +260,6 @@ box-shadow:
    
 animation:
 paperOpen .9s,
-cardGlow 3s ease-in-out infinite alternate;
 }
 
 /* =========================
