@@ -13,7 +13,7 @@ const messages = [
 
 "If I made you sad, I truly regret it. Please forgive me. 💕",
 
-"I know I can't change what happened, but I promise to learn from it and become a better person for us. ❤️"
+"I know I can't change what happened, but I promise to learn from it and become a better person. ❤️"
 ];
 
 let current = 0;
