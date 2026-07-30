@@ -1,30 +1,48 @@
+/* =========================
+   RESET
+========================= */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+}
+
 body{
 
-font-family:'Poppins',sans-serif;
+background:
+linear-gradient(
+135deg,
+#05050d,
+#180818,
+#3b1030,
+#ff4f98
+);
 
-background:linear-gradient(135deg,#080814,#2b0b26,#ff4f98);
-
-overflow:hidden;
-
-height:100vh;
-
-color:white;
+color:#fff;
 
 }
 
+/* =========================
+SCREENS
+========================= */
+
 .screen{
 
-position:absolute;
+position:fixed;
+
+left:0;
+top:0;
 
 width:100%;
-
-height:100vh;
+height:100%;
 
 display:none;
 
@@ -32,7 +50,11 @@ justify-content:center;
 
 align-items:center;
 
-flex-direction:column;
+padding:25px;
+
+opacity:0;
+
+transition:.8s;
 
 }
 
@@ -40,55 +62,71 @@ flex-direction:column;
 
 display:flex;
 
+opacity:1;
+
 }
 
-.intro-box{
+/* =========================
+INTRO
+========================= */
+
+.intro{
 
 text-align:center;
 
-animation:fade 1.5s;
+animation:fadeUp 1s;
 
 }
 
-h1{
+.intro h2{
 
-font-family:'Dancing Script',cursive;
-
-font-size:55px;
-
-margin:20px;
-
-}
-
-h2{
-
-font-size:24px;
+font-size:22px;
 
 font-weight:400;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
-button{
+.intro h1{
 
-padding:15px 35px;
+font-family:'Dancing Script',cursive;
+
+font-size:56px;
+
+margin-top:30px;
+
+margin-bottom:25px;
+
+}
+
+/* =========================
+BUTTON
+========================= */
+
+button{
 
 border:none;
 
+outline:none;
+
+padding:16px 34px;
+
 border-radius:40px;
-
-background:#ff4f98;
-
-color:white;
 
 font-size:18px;
 
 cursor:pointer;
 
-margin-top:30px;
+background:#ff4f98;
 
-transition:.3s;
+color:white;
+
+box-shadow:
+
+0 0 20px rgba(255,79,152,.35);
+
+transition:.35s;
 
 }
 
@@ -98,47 +136,56 @@ transform:scale(1.08);
 
 }
 
+/* =========================
+ENVELOPE
+========================= */
+
 .envelope{
-
-width:220px;
-
-height:140px;
 
 position:relative;
 
-margin:30px auto;
+width:240px;
+
+height:160px;
+
+margin:auto;
 
 }
 
-.envelope-back{
+.body{
 
 position:absolute;
 
+bottom:0;
+
 width:100%;
 
-height:100%;
+height:120px;
 
-background:#ffc6dc;
+background:#ffc7df;
 
-border-radius:8px;
+border-radius:0 0 12px 12px;
 
 }
 
-.envelope-flap{
+.flap{
 
 position:absolute;
 
 top:0;
 
-left:0;
-
 width:100%;
 
-height:70px;
+height:80px;
 
-background:#ff8fbc;
+background:#ff92bf;
 
-clip-path:polygon(0 0,100% 0,50% 100%);
+clip-path:
+polygon(
+0 0,
+100% 0,
+50% 100%
+);
 
 transform-origin:top;
 
@@ -146,98 +193,171 @@ transition:1s;
 
 }
 
-.envelope-letter{
+.letter{
 
 position:absolute;
 
-left:15px;
+left:20px;
 
-top:15px;
+top:18px;
 
-width:190px;
+width:200px;
 
 height:110px;
 
 background:white;
 
-border-radius:6px;
+border-radius:8px;
+
+transition:1s;
 
 }
-/* Letter */
 
-.letter-container{
+/* =========================
+ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+}
+/* =========================
+PAPER
+========================= */
+
+.paper{
+
+width:100%;
+max-width:420px;
+
+background:#fffdf8;
+
+border-radius:24px;
+
+padding:28px;
+
+text-align:center;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
+
+color:#444;
+
+animation:paperOpen .9s;
+
+}
+
+@keyframes paperOpen{
+
+0%{
+
+opacity:0;
+
+transform:
+scale(.7)
+rotateX(90deg);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+scale(1)
+rotateX(0);
+
+}
+
+}
+
+/* =========================
+PHOTO
+========================= */
+
+.photoFrame{
 
 display:flex;
 
 justify-content:center;
 
-align-items:center;
-
-width:100%;
-
-height:100%;
+margin-bottom:22px;
 
 }
 
-.paper{
-
-width:90%;
-
-max-width:430px;
-
-background:#fffdf8;
-
-padding:30px;
-
-border-radius:20px;
-
-box-shadow:0 20px 60px rgba(0,0,0,.35);
-
-text-align:center;
-
-color:#444;
-
-}
-
-.photo{
+#photo{
 
 width:180px;
 
 height:180px;
 
-border-radius:20px;
-
 object-fit:cover;
 
-border:6px solid #fff;
+border-radius:20px;
 
-box-shadow:0 0 25px rgba(255,79,152,.5);
+border:6px solid white;
+
+box-shadow:
+0 0 30px rgba(255,79,152,.45);
+
+}
+
+/* =========================
+TITLE
+========================= */
+
+.title{
+
+font-family:'Dancing Script',cursive;
+
+font-size:46px;
+
+color:#ff4f98;
 
 margin-bottom:20px;
 
 }
 
-.letter-title{
+/* =========================
+MESSAGE
+========================= */
 
-color:#ff4f98;
-
-font-size:45px;
-
-}
-
-#typedMessage{
+#message{
 
 font-family:'Dancing Script',cursive;
 
-font-size:34px;
+font-size:33px;
 
-line-height:1.5;
+line-height:1.6;
 
 min-height:180px;
 
-margin:20px 0;
+color:#555;
 
 }
+
+/* =========================
+PROGRESS
+========================= */
 
 .progress{
 
@@ -247,7 +367,7 @@ justify-content:center;
 
 gap:10px;
 
-margin:20px 0;
+margin:22px 0;
 
 }
 
@@ -259,7 +379,9 @@ height:12px;
 
 border-radius:50%;
 
-background:#ffd2e5;
+background:#ffd5e8;
+
+transition:.3s;
 
 }
 
@@ -267,37 +389,35 @@ background:#ffd2e5;
 
 background:#ff4f98;
 
-transform:scale(1.3);
+transform:scale(1.35);
 
 }
 
-#nextBtn{
+/* =========================
+QUESTION
+========================= */
 
-margin-top:15px;
-
-}
-
-/* Screen 3 */
-
-.question-box{
+.questionCard{
 
 text-align:center;
 
 }
 
-.question-box h1{
+.questionCard h1{
 
-font-size:52px;
+font-size:50px;
+
+margin-bottom:40px;
+
+font-family:'Dancing Script',cursive;
 
 }
 
-.btn-group{
-
-margin-top:40px;
+.buttons{
 
 display:flex;
 
-gap:25px;
+gap:18px;
 
 justify-content:center;
 
@@ -317,13 +437,13 @@ background:#777;
 
 position:relative;
 
-transition:.25s;
-
 }
 
-/* Celebration */
+/* =========================
+FINAL
+========================= */
 
-.celebration-box{
+#celebration{
 
 position:relative;
 
@@ -337,143 +457,39 @@ justify-content:center;
 
 align-items:center;
 
+overflow:hidden;
+
 }
 
-#thanksMessage{
+#finalText{
 
 display:none;
+
+font-family:'Dancing Script',cursive;
 
 font-size:58px;
 
 text-align:center;
 
-padding:20px;
+text-shadow:
+0 0 25px #ff78c2;
 
-color:white
+z-index:20;
+
+}
+
 #rain{
 
-position:fixed;
-
-left:0;
-top:0;
-
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-overflow:hidden;
-
-}
-
-@keyframes fall{
-
-0%{
-
-transform:
-translateY(-80px)
-rotate(0deg);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:
-translateY(110vh)
-translateX(calc(-50px + 100px * var(--r,1)))
-rotate(360deg);
-
-opacity:0.95;
-
-}
-
-}
-/* Floating background hearts */
-
-#particles{
-position:fixed;
-width:100%;
-height:100%;
-left:0;
-top:0;
-overflow:hidden;
-pointer-events:none;
-z-index:-1;
-}
-
-.bgHeart{
 position:absolute;
-font-size:18px;
-animation:bgFloat linear forwards;
-opacity:.5;
-}
 
-@keyframes bgFloat{
+width:100%;
 
-0%{
-transform:translateY(100vh) scale(.4);
-opacity:0;
-}
+height:100%;
 
-20%{
-opacity:.5;
-}
+left:0;
 
-100%{
-transform:translateY(-120vh) scale(1.2);
-opacity:0;
-}
+top:0;
 
-}
-
-/* Screen transition */
-
-.screen{
-opacity:0;
 pointer-events:none;
-transition:.7s;
-}
-
-.screen.active{
-opacity:1;
-pointer-events:auto;
-display:flex;
-}
-
-/* Paper animation */
-
-.paper{
-animation:paperOpen .8s ease;
-}
-
-@keyframes paperOpen{
-
-0%{
-transform:scale(.7) rotateX(90deg);
-opacity:0;
-}
-
-100%{
-transform:scale(1) rotateX(0);
-opacity:1;
-}
-
-}
-
-/* Envelope opens */
-
-.open .envelope-flap{
-
-transform:rotateX(180deg);
-
-}
-
-.open .envelope-letter{
-
-transform:translateY(-80px);
-
-transition:1s;
 
 }
