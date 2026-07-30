@@ -727,3 +727,67 @@ transform:scale(1.8);
 }
 
 }
+/* MUSIC BUTTON */
+
+#musicBtn{
+
+position:fixed;
+
+right:20px;
+
+top:20px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+font-size:24px;
+
+z-index:9999;
+
+backdrop-filter:blur(10px);
+
+background:rgba(255,255,255,.15);
+
+}
+
+
+/* CURSOR SPARKLE */
+
+.spark{
+
+position:fixed;
+
+pointer-events:none;
+
+font-size:18px;
+
+animation:spark .8s linear forwards;
+
+}
+
+@keyframes spark{
+
+0%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(.5);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translateY(-40px)
+scale(1.5);
+
+}
+
+}
