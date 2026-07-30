@@ -1,4 +1,3 @@
-const jsConfetti = new JSConfetti();
 // ==========================
 // MESSAGES
 // ==========================
@@ -45,22 +44,22 @@ const dots = document.querySelectorAll(".dot");
 
 openBtn.addEventListener("click",()=>{
 
-    envelope.classList.add("open");
+envelope.classList.add("open");
 
-    const letter = document.querySelector(".envelope-letter");
-    if(letter){
-        setTimeout(()=>{
-            letter.style.transform="translateY(-140px) scale(1.08)";
-        },600);
-    }
 
-    setTimeout(()=>{
-        screen1.classList.remove("active");
-        screen2.classList.add("active");
-        showMessage();
-    },800);
+setTimeout(()=>{
+
+screen1.classList.remove("active");
+
+screen2.classList.add("active");
+
+showMessage();
+
+},800);
+
 
 });
+
 
 // ==========================
 // TYPE MESSAGE
@@ -196,27 +195,8 @@ finalText.style.display="block";
 celebration();
 
 
-jsConfetti.addConfetti({
-    emojis: ["❤️","🌹","🌸","✨","💖"],
-    emojiSize: 40,
-    confettiNumber: 120
 });
 
-setTimeout(()=>{
-    jsConfetti.addConfetti({
-        emojis:["💗","💕","💞","🌺"],
-        emojiSize:45,
-        confettiNumber:80
-    });
-},700);
-
-setTimeout(()=>{
-    jsConfetti.addConfetti({
-        emojis:["❤️","🌹","🌸"],
-        emojiSize:50,
-        confettiNumber:100
-    });
-},1500);
 
 // ==========================
 // HEART + FLOWER RAIN
@@ -330,151 +310,175 @@ heart.remove();
 
 },800);
 // ==========================
-// STARS
+// YES / NO SCREEN
 // ==========================
 
-const stars=document.getElementById("stars");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 
-for(let i=0;i<120;i++){
+const finalText = document.getElementById("finalText");
 
-const star=document.createElement("div");
 
-star.className="star";
-
-star.style.left=Math.random()*100+"vw";
-
-star.style.top=Math.random()*100+"vh";
-
-star.style.animationDelay=
-(Math.random()*2)+"s";
-
-star.style.animationDuration=
-(1+Math.random()*3)+"s";
-
-stars.appendChild(star);
-
-}
 // ==========================
-// MUSIC
+// NO BUTTON ESCAPE
 // ==========================
 
-const music=document.getElementById("bgMusic");
+function moveNoButton(){
 
-const musicBtn=document.getElementById("musicBtn");
+const x = Math.random() * (window.innerWidth - 120);
 
-let playing=false;
+const y = Math.random() * (window.innerHeight - 80);
 
-musicBtn.onclick=()=>{
 
-if(playing){
+noBtn.style.position = "fixed";
 
-music.pause();
+noBtn.style.left = x + "px";
 
-musicBtn.innerHTML="🎵";
-
-}else{
-
-music.play();
-
-musicBtn.innerHTML="⏸";
+noBtn.style.top = y + "px";
 
 }
 
-playing=!playing;
 
-};
+noBtn.addEventListener("mouseenter",moveNoButton);
 
+noBtn.addEventListener("touchstart",(e)=>{
 
-// ==========================
-// CURSOR SPARKLES
-// ==========================
+e.preventDefault();
 
-document.addEventListener("mousemove",e=>{
-
-const spark=document.createElement("div");
-
-spark.className="spark";
-
-spark.innerHTML=["✨","💖","❤️"][Math.floor(Math.random()*3)];
-
-spark.style.left=e.clientX+"px";
-
-spark.style.top=e.clientY+"px";
-
-document.body.appendChild(spark);
-
-setTimeout(()=>{
-
-spark.remove();
-
-},800);
+moveNoButton();
 
 });
-setInterval(()=>{
 
-const orb=document.createElement("div");
 
-orb.style.position="fixed";
-
-orb.style.width=(20+Math.random()*80)+"px";
-
-orb.style.height=orb.style.width;
-
-orb.style.borderRadius="50%";
-
-orb.style.left=Math.random()*100+"vw";
-
-orb.style.top="110vh";
-
-orb.style.pointerEvents="none";
-
-orb.style.filter="blur(20px)";
-
-orb.style.background="rgba(255,120,180,.35)";
-
-orb.style.transition="10s linear";
-
-document.body.appendChild(orb);
-
-setTimeout(()=>{
-
-orb.style.transform="translateY(-130vh)";
-
-orb.style.opacity="0";
-
-},50);
-
-setTimeout(()=>{
-
-orb.remove();
-
-},10000);
-
-},1800);
 // ==========================
-// SAKURA PETALS
+// YES CLICK
 // ==========================
 
-setInterval(()=>{
+yesBtn.addEventListener("click",()=>{
 
-const petal=document.createElement("div");
 
-petal.className="petal";
+screen3.classList.remove("active");
 
-petal.innerHTML="🌸";
+screen4.classList.add("active");
 
-petal.style.left=Math.random()*100+"vw";
 
-petal.style.fontSize=(16+Math.random()*18)+"px";
+finalText.style.display="block";
 
-petal.style.animationDuration=(6+Math.random()*5)+"s";
 
-document.body.appendChild(petal);
+celebration();
+
+
+});
+
+
+// ==========================
+// HEART + FLOWER RAIN
+// ==========================
+
+function celebration(){
+
+
+const items=[
+
+"❤️",
+"🌹",
+"🌸",
+"✨"
+
+];
+
+
+for(let i=0;i<180;i++){
+
 
 setTimeout(()=>{
 
-petal.remove();
 
-},12000);
+const item=document.createElement("div");
 
-},450);
+
+item.className="drop";
+
+
+item.innerHTML =
+items[Math.floor(Math.random()*items.length)];
+
+
+item.style.left =
+Math.random()*100+"vw";
+
+
+item.style.fontSize =
+(18+Math.random()*25)+"px";
+
+
+item.style.animationDuration =
+(4+Math.random()*5)+"s";
+
+
+document.body.appendChild(item);
+
+
+
+setTimeout(()=>{
+
+item.remove();
+
+},9000);
+
+
+
+},i*35);
+
+
+
+}
+
+
+}
+
+
+// ==========================
+// FLOATING BACKGROUND HEARTS
+// ==========================
+
+
+setInterval(()=>{
+
+
+const heart=document.createElement("div");
+
+
+heart.className="bgHeart";
+
+
+heart.innerHTML="❤️";
+
+
+heart.style.left =
+Math.random()*100+"vw";
+
+
+heart.style.fontSize =
+(12+Math.random()*20)+"px";
+
+
+heart.style.animationDuration =
+(7+Math.random()*8)+"s";
+
+
+
+document.getElementById("particles")
+.appendChild(heart);
+
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},15000);
+
+
+
+},800);
