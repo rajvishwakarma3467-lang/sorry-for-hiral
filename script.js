@@ -1,186 +1,144 @@
 const messages = [
-
 "I messed up... and I'm really sorry for that. 🥺🥺",
-
 "I promise I'll be better more 😘😘",
-
 "Please forgive me... You mean so much to me. ☹️☹️",
-
 "I'm really sorry Hiral, I accidentally upset the most precious and adorable person in my life — you. 🥹",
-
 "Please forgive me. If I hurt you or even if I was a little rude, I promise I didn't mean to. 🥺💕",
-
 "I know I can't change what happened, but I promise to learn from it and become a better person for us. ❤️"
-
 ];
 
+let current = 0;
 
-let current=0;
+const screen1 = document.getElementById("screen1");
+const screen2 = document.getElementById("screen2");
+const screen3 = document.getElementById("screen3");
+const screen4 = document.getElementById("screen4");
 
+const typedMessage = document.getElementById("typedMessage");
+const nextBtn = document.getElementById("nextBtn");
 
+const dots = document.querySelectorAll(".dot");
 
-function openLetter(){
+document.getElementById("openBtn").onclick = () => {
 
-document.getElementById("welcome").style.display="none";
-
-document.getElementById("letter").style.display="block";
+screen1.classList.remove("active");
+screen2.classList.add("active");
 
 showMessage();
 
-}
-
-
+};
 
 function showMessage(){
 
-let box=document.getElementById("messageText");
+typedMessage.innerHTML="";
 
-box.innerHTML="";
+dots.forEach(d=>d.classList.remove("active"));
+
+if(dots[current]) dots[current].classList.add("active");
 
 let text=messages[current];
 
 let i=0;
 
+let timer=setInterval(()=>{
 
-let typing=setInterval(()=>{
-
-box.innerHTML+=text[i];
+typedMessage.innerHTML+=text.charAt(i);
 
 i++;
 
-
 if(i>=text.length){
 
-clearInterval(typing);
+clearInterval(timer);
 
 }
 
-},45);
-
+},35);
 
 }
 
-
-
-
-
-function nextMessage(){
-
+nextBtn.onclick=()=>{
 
 current++;
 
-
-if(current < messages.length){
+if(current<messages.length){
 
 showMessage();
 
-}
+}else{
 
-else{
-
-
-document.querySelector(".message-area").style.display="none";
-
-document.getElementById("forgive").style.display="block";
-
+screen2.classList.remove("active");
+screen3.classList.add("active");
 
 }
 
+};
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const thanksMessage = document.getElementById("thanksMessage");
+const rain = document.getElementById("rain");
 
+// 🥺 No button escapes
+noBtn.addEventListener("click", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+function moveNo(e) {
+    e.preventDefault();
+
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    noBtn.style.transform =
+        `rotate(${Math.random() * 40 - 20}deg)`;
 }
 
+// ❤️ Yes button
+yesBtn.addEventListener("click", () => {
 
+    screen3.classList.remove("active");
+    screen4.classList.add("active");
 
+    thanksMessage.style.display = "block";
 
-function noClick(){
+    celebrate();
 
+});
 
-let btn=document.getElementById("noBtn");
+function celebrate(){
 
+    const items=["❤️","🌹","🌸","✨"];
 
-btn.style.transform=
+    let total=180;
 
-`translate(${Math.random()*200-100}px,
-${Math.random()*100-50}px)`;
+    for(let i=0;i<total;i++){
 
-}
+        const el=document.createElement("div");
 
+        el.innerHTML=items[Math.floor(Math.random()*items.length)];
 
+        el.style.position="fixed";
 
+        el.style.left=Math.random()*100+"vw";
 
-function yesClick(){
+        el.style.top="-50px";
 
+        el.style.fontSize=(18+Math.random()*24)+"px";
 
-document.getElementById("letter").style.display="none";
+        el.style.pointerEvents="none";
 
-document.getElementById("celebration").style.display="block";
+        el.style.animation=
+        `fall ${4+Math.random()*4}s linear forwards`;
 
+        el.style.animationDelay=(Math.random()*2)+"s";
 
-startCelebration();
+        rain.appendChild(el);
 
+        setTimeout(()=>{
+            el.remove();
+        },9000);
 
-}
-
-
-
-
-function startCelebration(){
-
-
-for(let i=0;i<120;i++){
-
-
-let item=document.createElement("div");
-
-
-let type=Math.random();
-
-
-if(type<0.5){
-
-item.innerHTML="❤️";
-
-}
-else if(type<0.8){
-
-item.innerHTML="🌹";
-
-}
-else{
-
-item.innerHTML="✨";
-
-}
-
-
-
-item.style.position="fixed";
-
-item.style.left=Math.random()*100+"%";
-
-item.style.top="-30px";
-
-item.style.fontSize=
-(15+Math.random()*25)+"px";
-
-
-item.style.animation=
-"fall 4s linear";
-
-
-document.body.appendChild(item);
-
-
-
-setTimeout(()=>{
-
-item.remove();
-
-},4000);
-
-
-
-}
-
+    }
 
 }
