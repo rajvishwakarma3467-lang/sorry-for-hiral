@@ -45,29 +45,22 @@ const dots = document.querySelectorAll(".dot");
 
 openBtn.addEventListener("click",()=>{
 
-envelope.classList.add("open");
+    envelope.classList.add("open");
 
+    const letter = document.querySelector(".envelope-letter");
+    if(letter){
+        setTimeout(()=>{
+            letter.style.transform="translateY(-140px) scale(1.08)";
+        },600);
+    }
 
-setTimeout(()=>{
-
-screen1.classList.remove("active");
-
-screen2.classList.add("active");
-
-showMessage();
-
-},800);
-
+    setTimeout(()=>{
+        screen1.classList.remove("active");
+        screen2.classList.add("active");
+        showMessage();
+    },800);
 
 });
-envelope.classList.add("open");
-
-setTimeout(()=>{
-
-document.querySelector(".envelope-letter").style.transform =
-"translateY(-140px) scale(1.08)";
-
-},600);
 
 // ==========================
 // TYPE MESSAGE
