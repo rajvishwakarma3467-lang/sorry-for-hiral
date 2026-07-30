@@ -14,7 +14,7 @@ const screen2 = document.getElementById("screen2");
 const screen3 = document.getElementById("screen3");
 const screen4 = document.getElementById("screen4");
 
-const typedMessage = document.getElementById("typedMessage");
+const typedMessage = document.getElementById("message");
 const nextBtn = document.getElementById("nextBtn");
 
 const dots = document.querySelectorAll(".dot");
@@ -169,57 +169,7 @@ heart.remove();
 },16000);
 
 },600);
-// ==========================
-// NO BUTTON
-// ==========================
 
-const noBtn=document.getElementById("noBtn");
-
-function escapeButton(){
-
-const w=window.innerWidth-140;
-
-const h=window.innerHeight-80;
-
-const x=Math.random()*w;
-
-const y=Math.random()*h;
-
-noBtn.style.position="fixed";
-
-noBtn.style.left=x+"px";
-
-noBtn.style.top=y+"px";
-
-}
-
-noBtn.addEventListener("mouseover",escapeButton);
-
-noBtn.addEventListener("touchstart",function(e){
-
-e.preventDefault();
-
-escapeButton();
-
-});
-
-// ==========================
-// YES BUTTON
-// ==========================
-
-const yesBtn=document.getElementById("yesBtn");
-
-yesBtn.addEventListener("click",()=>{
-
-screen3.classList.remove("active");
-
-screen4.classList.add("active");
-
-thanksMessage.style.display="block";
-
-startCelebration();
-
-});
 
 // ==========================
 // CELEBRATION
