@@ -1,3 +1,4 @@
+const jsConfetti = new JSConfetti();
 // ==========================
 // MESSAGES
 // ==========================
