@@ -197,7 +197,27 @@ celebration();
 
 
 });
+jsConfetti.addConfetti({
+    emojis: ["❤️","🌹","🌸","✨","💖"],
+    emojiSize: 40,
+    confettiNumber: 120
+});
 
+setTimeout(()=>{
+    jsConfetti.addConfetti({
+        emojis:["💗","💕","💞","🌺"],
+        emojiSize:45,
+        confettiNumber:80
+    });
+},700);
+
+setTimeout(()=>{
+    jsConfetti.addConfetti({
+        emojis:["❤️","🌹","🌸"],
+        emojiSize:50,
+        confettiNumber:100
+    });
+},1500);
 
 // ==========================
 // HEART + FLOWER RAIN
