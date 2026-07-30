@@ -142,3 +142,30 @@ function celebrate(){
     }
 
 }
+/* Floating hearts */
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="bgHeart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(10+Math.random()*18)+"px";
+
+heart.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.getElementById("particles").appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},16000);
+
+},600);
