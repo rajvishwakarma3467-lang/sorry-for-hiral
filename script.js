@@ -418,3 +418,44 @@ spark.remove();
 },800);
 
 });
+setInterval(()=>{
+
+const orb=document.createElement("div");
+
+orb.style.position="fixed";
+
+orb.style.width=(20+Math.random()*80)+"px";
+
+orb.style.height=orb.style.width;
+
+orb.style.borderRadius="50%";
+
+orb.style.left=Math.random()*100+"vw";
+
+orb.style.top="110vh";
+
+orb.style.pointerEvents="none";
+
+orb.style.filter="blur(20px)";
+
+orb.style.background="rgba(255,120,180,.35)";
+
+orb.style.transition="10s linear";
+
+document.body.appendChild(orb);
+
+setTimeout(()=>{
+
+orb.style.transform="translateY(-130vh)";
+
+orb.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+orb.remove();
+
+},10000);
+
+},1800);
