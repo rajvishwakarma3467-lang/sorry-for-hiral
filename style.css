@@ -654,3 +654,40 @@ padding:20px;
 }
 
 }
+button{
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 35px #ff5ca8;
+
+}
+
+.paper{
+
+backdrop-filter:blur(8px);
+
+}
+
+body{
+
+background-size:400% 400%;
+
+animation:bgMove 10s ease infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
