@@ -920,3 +920,56 @@ transform:scale(1);
 }
 
 }
+/* ==========================
+AURORA BACKGROUND
+========================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+left:-30%;
+
+top:-30%;
+
+width:160%;
+
+height:160%;
+
+background:
+
+radial-gradient(circle,#ff4f9850,transparent 40%),
+radial-gradient(circle,#8a2be250,transparent 45%),
+radial-gradient(circle,#00d4ff40,transparent 35%);
+
+filter:blur(90px);
+
+animation:auroraMove 18s linear infinite;
+
+z-index:-5;
+
+}
+
+@keyframes auroraMove{
+
+0%{
+
+transform:rotate(0deg) scale(1);
+
+}
+
+50%{
+
+transform:rotate(180deg) scale(1.2);
+
+}
+
+100%{
+
+transform:rotate(360deg) scale(1);
+
+}
+
+}
