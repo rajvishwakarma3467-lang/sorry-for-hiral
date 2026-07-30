@@ -355,3 +355,59 @@ star.style.animationDuration=
 stars.appendChild(star);
 
 }
+// ==========================
+// MUSIC
+// ==========================
+
+const music=document.getElementById("bgMusic");
+
+const musicBtn=document.getElementById("musicBtn");
+
+let playing=false;
+
+musicBtn.onclick=()=>{
+
+if(playing){
+
+music.pause();
+
+musicBtn.innerHTML="🎵";
+
+}else{
+
+music.play();
+
+musicBtn.innerHTML="⏸";
+
+}
+
+playing=!playing;
+
+};
+
+
+// ==========================
+// CURSOR SPARKLES
+// ==========================
+
+document.addEventListener("mousemove",e=>{
+
+const spark=document.createElement("div");
+
+spark.className="spark";
+
+spark.innerHTML=["✨","💖","❤️"][Math.floor(Math.random()*3)];
+
+spark.style.left=e.clientX+"px";
+
+spark.style.top=e.clientY+"px";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+
+spark.remove();
+
+},800);
+
+});
