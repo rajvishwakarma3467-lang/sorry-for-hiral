@@ -169,3 +169,225 @@ heart.remove();
 },16000);
 
 },600);
+// ==========================
+// NO BUTTON
+// ==========================
+
+const noBtn=document.getElementById("noBtn");
+
+function escapeButton(){
+
+const w=window.innerWidth-140;
+
+const h=window.innerHeight-80;
+
+const x=Math.random()*w;
+
+const y=Math.random()*h;
+
+noBtn.style.position="fixed";
+
+noBtn.style.left=x+"px";
+
+noBtn.style.top=y+"px";
+
+}
+
+noBtn.addEventListener("mouseover",escapeButton);
+
+noBtn.addEventListener("touchstart",function(e){
+
+e.preventDefault();
+
+escapeButton();
+
+});
+
+// ==========================
+// YES BUTTON
+// ==========================
+
+const yesBtn=document.getElementById("yesBtn");
+
+yesBtn.addEventListener("click",()=>{
+
+screen3.classList.remove("active");
+
+screen4.classList.add("active");
+
+thanksMessage.style.display="block";
+
+startCelebration();
+
+});
+
+// ==========================
+// CELEBRATION
+// ==========================
+
+function startCelebration(){
+
+const emojis=["❤️","🌹","🌸","✨"];
+
+let count=220;
+
+for(let i=0;i<count;i++){
+
+setTimeout(()=>{
+
+const item=document.createElement("div");
+
+item.className="drop";
+
+item.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+item.style.left=
+Math.random()*100+"vw";
+
+item.style.fontSize=
+(18+Math.random()*26)+"px";
+
+item.style.animationDuration=
+(4+Math.random()*5)+"s";
+
+item.style.transform=
+`rotate(${Math.random()*360}deg)`;
+
+document.body.appendChild(item);
+
+setTimeout(()=>{
+
+item.remove();
+
+},9000);
+
+},i*30);
+
+}
+
+}
+// ==========================
+// ENVELOPE OPEN
+// ==========================
+
+const envelope=document.getElementById("envelope");
+
+document.getElementById("openBtn").onclick=()=>{
+
+envelope.classList.add("open");
+
+setTimeout(()=>{
+
+screen1.classList.remove("active");
+
+screen2.classList.add("active");
+
+showMessage();
+
+},1200);
+
+};
+
+// ==========================
+// FLOATING HEARTS
+// ==========================
+
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="bgHeart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(12+Math.random()*18)+"px";
+
+heart.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.getElementById("particles")
+.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},16000);
+
+},700);
+
+// ==========================
+// PAPER FLIP
+// ==========================
+
+function paperFlip(){
+
+const paper=document.querySelector(".paper");
+
+paper.style.transform="rotateY(90deg)";
+paper.style.opacity="0";
+
+setTimeout(()=>{
+
+paper.style.transform="rotateY(0deg)";
+paper.style.opacity="1";
+
+},250);
+
+}
+
+const oldNext=nextBtn.onclick;
+
+nextBtn.onclick=()=>{
+
+paperFlip();
+
+setTimeout(()=>{
+
+current++;
+
+if(current<messages.length){
+
+showMessage();
+
+}else{
+
+screen2.classList.remove("active");
+
+screen3.classList.add("active");
+
+}
+
+},280);
+
+};
+
+// ==========================
+// HEART PULSE
+// ==========================
+
+setInterval(()=>{
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.animate([
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.06)"},
+
+{transform:"scale(1)"}
+
+],{
+
+duration:1200
+
+});
+
+});
+
+},1800);
